@@ -12,176 +12,9 @@
     <link rel="stylesheet" href="css/index.css" />
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script>
-      var w = window.outerWidth;
-      function viewChange(){
-        w = window.outerWidth;
-        if(w<=736){
-          document.getElementById('navbar').style.display="none";
-        }
-        else{
-          document.getElementById('navbar').style.display="inline";
-        }
-        if(w<=1024){
-          $('.powerBack').css({top:10, position:'absolute'});
-          $('.powerP').css({display:'block'});
-        }
-        if(w<=736){
-          $('#ALAN').attr('src',"img/2.png");
-          $('#payloadCustomer').attr('src',"img/1.png");
-          $('#credCard').attr('src',"img/3.png");
-          $('#martian').attr('src',"img/4.png");
-        }
-        else if(w>=736){
-          $('#ALAN').attr('src',"img/ALAN 2.png");
-          $('#payloadCustomer').attr('src',"img/Payload Customer 2.png");
-          $('#credCard').attr('src',"img/Credit Card Attack 2.png");
-          $('#martian').attr('src',"img/Martian 2.png");
-        }
-        //$('#scrollspy').css('margin-bottom','64px');
-        scrollChange();
-      }
-      function drop(){
-        if(document.getElementById('navbar').style.display=="none"){
-          document.getElementById('navbar').style.display="inline";
-          //$('#scrollspy').css('margin-bottom','119px');
-        }
-        else{
-          document.getElementById('navbar').style.display="none";
-          //$('#scrollspy').css({bottom:64, position:'fixed'});
-          //$('#scrollspy').css('margin-bottom','64px');
-        }
-      }
-      function scrollChange(){
-        var height = $(window).scrollTop();
-        w = window.outerWidth;
-        if(height>=1260){
-          //$('#scrollspy').css('display','block');
-        }
-        else{
-          //$('#scrollspy').css('display','none');
-        }
-        if(w>736){
-          if(height>=1890){
-            //$('#scrollspy').css('display','none');
-            $('#nav').css('display','none');
-          }
-          else {
-            $('#nav').css('display','block');
-          }
-          if(w>1600){
-            $('#nav').css('display','none');
-          }
-        }
-        else{
-          $('#nav').css('display','block');
-        }
-        if(w<=736){
-          /*
-          if((height>1260) && (height<1890)){
-            $('#powerMonitor').css('display','block');
-            $('#worksMonitor').css('display','none');
-            $('#testimonialsMonitor').css('display','none');
-            $('#merchantsMonitor').css('display','none');
-          }
-          else if((height>1890) && (height<12520)){
-            $('#powerMonitor').css('display','none');
-            $('#worksMonitor').css('display','block');
-            $('#testimonialsMonitor').css('display','none');
-            $('#merchantsMonitor').css('display','none');
-          }
-          else if((height>2520) && (height<3150)){
-            $('#powerMonitor').css('display','none');
-            $('#worksMonitor').css('display','none');
-            $('#testimonialsMonitor').css('display','block');
-            $('#merchantsMonitor').css('display','none');
-          }
-          else if((height>3150)){
-            $('#powerMonitor').css('display','none');
-            $('#worksMonitor').css('display','none');
-            $('#testimonialsMonitor').css('display','none');
-            $('#merchantsMonitor').css('display','block');
-          }
-          */
-          /*
-          if((height>630) && (height<1260)){
-            $('#powerMonitor').show();
-            $('#worksMonitor').hide();
-            $('#testimonialsMonitor').hide();
-            $('#merchantsMonitor').hide();
-          }
-          else if((height>1260) && (height<1890)){
-            $('#powerMonitor').hide();
-            $('#worksMonitor').show();
-            $('#testimonialsMonitor').hide();
-            $('#merchantsMonitor').hide();
-          }
-          else if((height>1890) && (height<2520)){
-            $('#powerMonitor').hide();
-            $('#worksMonitor').hide();
-            $('#testimonialsMonitor').show();
-            $('#merchantsMonitor').hide();
-          }
-          else if((height>2520) && (height<31500)){
-            $('#powerMonitor').hide();
-            $('#worksMonitor').hide();
-            $('#testimonialsMonitor').hide();
-            $('#merchantsMonitor').show();
-          }
-          */
-        }
-        else{
-          /*
-          $('#powerMonitor').css('display','block');
-          $('#worksMonitor').css('display','block');
-          $('#testimonialsMonitor').css('display','block');
-          $('#merchantsMonitor').css('display','block');
-          */
-        }
-      }
-      $(document).ready(function(){
-        $('#safe').hover(function(){
-          if(w>1024){
-            $('#safeP').slideToggle(736);
-            $('#safeBack').animate({top:'+=300px'},736);
-          }
-        },
-        function(){
-          if(w>1024){
-            $('#safeP').slideToggle(736);
-            $('#safeBack').animate({top:'-=300px'},736);
-          }
-        });
-        $('#instant').hover(function(){
-          if(w>1024){
-            $('#instantP').slideToggle(736);
-            $('#instantBack').animate({top:'+=300px'},736);
-          }
-        },
-        function(){
-          if(w>1024){
-            $('#instantP').slideToggle(736);
-            $('#instantBack').animate({top:'-=300px'},736);
-          }
-        });
-        $('#free').hover(function(){
-          if(w>1024){
-            $('#freeP').slideToggle(736);
-            $('#freeBack').animate({top:'+=340px'},736);
-          }
-        },
-        function(){
-          if(w>1024){
-            $('#freeP').slideToggle(736);
-            $('#freeBack').animate({top:'-=340px'},736);
-          }
-        });
-        $(window).scroll(function(){
-
-        });
-      });
-    </script>
+    <script type="text/javascript" src="js/customFunctions.js"></script>
   </head>
+  
   <body data-spy="scroll" data-target=".navbar" data-offset="50" onscroll="scrollChange()" onresize="viewChange()" onload="viewChange()"><!--Body reacts to scrolling, resizing, and loading-->
     <p id="sign"><a href="#">SIGN UP</a> | <a href="#">SIGN IN</a><!--Sign In/Sign Up options-->
     <div id="home"><!--Div containing home section of page-->
@@ -191,8 +24,8 @@
         <br>
         <br>
         <br>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">		<!--Image Slider -->
+          <!-- Indicators  they indicate from where to get images-->
           <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -200,7 +33,7 @@
             <li data-target="#myCarousel" data-slide-to="3"></li>
           </ol>
 
-          <!-- Wrapper for slides -->
+          <!-- Wrapper for slides i.e The images which we want to use-->
           <div class="carousel-inner" role="listbox">
             <div class="item active">
               <img id="ALAN" class="slideImage" src="img/ALAN 2.png" />
@@ -215,11 +48,13 @@
               <img id="martian" class="slideImage" src="img/Martian 2.png">
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div id="welcome"><!--Div containing welcome section of page-->
-      <center><img src="img/Payload Logo.png" alt="Payload" align="center"/><!--Three logo images in center tag-->
+        </div>		<!-- End of Slider-->		
+      </div>		<!-- End of container -->
+    </div>			<!-- End of Home-->
+	
+	
+    <div id="welcome">		<!--Div containing welcome section of page-->
+      <center><img src="img/Payload Logo.png" alt="Payload" align="center"/>	<!--Three logo images in center tag-->
       <img src="img/Bitcoin.png" alt="Bitcoin"/>
       <img src="img/Bitcoin Customer.png" alt="Bitcoin Customer"/></center>
       <p>Welcome to Payload. We’re an organization <br>dedicated to facilitating the adoption of bitcoin in <br>Pakistan.
@@ -249,12 +84,10 @@
         </div>
       </div>
     </div>
-    <!--<div id="works"><!Div containing section about how Payload works
-    </div>-->
-    <!--<div id="testimonials"><!Div containing testimonials section of page
-    </div>-->
-    <div id="merchants"><!--Div containing merchants section of page-->
-      <div><!--Sub div containing message-->
+   
+   
+    <div id="merchants">	<!--Div containing merchants section of page-->
+      <div>	<!--Sub div containing message-->
         <span id="gotBiz">Got a Business?</span><br><!--Different spans for different lines with different effects-->
         <span id="wannaStart">Want to start<br>accepting Bitcoin<br>from you customers?</span><br>
         <span id="wrongPlace">(you're in the right place pal)</span><br>
